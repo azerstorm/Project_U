@@ -75,8 +75,28 @@ public class MainMenu {
     public static String userInput(String label) {
         String input;
         System.out.println(label);
-        input = myInput.nextLine();
+        do {
+            input = myInput.nextLine();
+        } while (!isAlphabet(input));
         return input;
+    }
+
+    public static boolean isNumber(String yourInput) {
+        if (yourInput.matches("[0-9]+")) {
+            return true;
+        } else {
+            System.out.println("Input bukan angka, silahkan input ulang: ");
+            return false;
+        }
+    }
+
+    public static boolean isAlphabet(String yourInput) {
+        if (yourInput.matches("[a-zA-Z]+")) {
+            return true;
+        } else {
+            System.out.println("Input bukan huruf, silahkan input ulang: ");
+            return false;
+        }
     }
 
 
